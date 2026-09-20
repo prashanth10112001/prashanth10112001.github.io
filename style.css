@@ -1,3 +1,5 @@
+/* navbar-starts */
+
 /* ==============================
    FLOATING TASKBAR
 ================================= */
@@ -18,7 +20,7 @@
 
   padding: 7px;
 
-  border: 1.5px solid #222;
+  /* border: 1.5px solid #222; */
 
   border-radius: 18px;
 
@@ -32,9 +34,15 @@
     0 2px 8px rgba(0, 0, 0, 0.06);
 }
 .taskbar.hide {
-  transform: translate(-50%, calc(100% - 40px));
-  opacity: 0;
-  pointer-events: none;
+  /* transform: translate(-50%, calc(100% - 40px)); */
+  opacity: 0.09;
+  /* pointer-events: none; */
+}
+
+.taskbar:hover {
+  /* transform: translate(-50%, calc(100% - 40px)); */
+  opacity: 1;
+  /* pointer-events: none; */
 }
 
 /* ==============================
@@ -66,7 +74,7 @@
   align-items: center;
   justify-content: center;
 
-  padding: 10px 16px;
+  padding: 5px 16px;
 
   border-radius: 12px;
 
@@ -95,9 +103,9 @@
 /* Active */
 
 .taskbar-link.active {
-  color: #12945b;
-
-  font-weight: 600;
+  background: #eef2ff; /* Soft tint (e.g., light blue/indigo) */
+  color: #4f46e5; /* Vibrant brand/accent color */
+  font-weight: 500;
 }
 
 /* Active indicator */
@@ -164,6 +172,8 @@
 
   transform: rotate(12deg);
 }
+
+/* navbar-ends */
 
 .hero {
   min-height: 100vh;
@@ -455,7 +465,7 @@
 .education-section {
   min-height: 100vh;
 
-  padding: 140px 7vw 0px;
+  padding: 50px 7vw 0px;
 
   box-sizing: border-box;
 }
@@ -506,6 +516,7 @@
 .education-year {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   padding-top: 4px;
 
@@ -636,13 +647,13 @@
 .projects-section {
   min-height: 100vh;
 
-  padding: 0px 7vw 0px;
+  padding: 50px 7vw 0px;
 
   box-sizing: border-box;
 
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 /* ========================================
@@ -947,7 +958,7 @@
 .publications-section {
   min-height: 100vh;
 
-  padding: 120px 7vw 0px;
+  padding: 50px 7vw 0px;
 
   box-sizing: border-box;
 }
@@ -1384,7 +1395,7 @@
 .contact-section {
   min-height: 100vh;
 
-  padding: 120px 7vw 40px;
+  padding: 50px 7vw 40px;
 
   box-sizing: border-box;
 
@@ -1722,7 +1733,7 @@
 
 .about-section {
   min-height: 100vh;
-  padding: 50px 7vw 120px;
+  padding: 50px 7vw 0px;
   box-sizing: border-box;
 }
 

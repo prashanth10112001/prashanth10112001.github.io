@@ -35,3 +35,31 @@ window.addEventListener(
   },
   { passive: true },
 );
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section[id]"); // Ensure your sections have IDs matching the hrefs
+  const navLinks = document.querySelectorAll(".taskbar-link");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5, // Triggers when 50% of the section is visible
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${id}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((section) => observer.observe(section));
+});
