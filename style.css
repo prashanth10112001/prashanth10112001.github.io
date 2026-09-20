@@ -211,6 +211,7 @@
   }
 
   .theme-btn {
+    display: none;
     width: 32px;
     height: 32px;
     font-size: 15px;
