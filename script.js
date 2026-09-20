@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
           link.classList.remove("active");
           if (link.getAttribute("href") === `#${id}`) {
             link.classList.add("active");
+            scrollToActiveLink();
           }
         });
       }
@@ -62,4 +63,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }, observerOptions);
 
   sections.forEach((section) => observer.observe(section));
+
+  // 2. Click Handler for instant feedback when tapping a nav item
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      navLinks.forEach((l) => l.classList.remove("active"));
+      this.classList.add("active");
+      scrollToActiveLink(); // <--- Added here for instant tap response
+    });
+  });
 });
+
+// Function to center the active link inside the scrollable taskbar
+function scrollToActiveLink() {
+  const activeLink = document.querySelector(".taskbar-link.active");
+  const taskbarList = document.querySelector(".taskbar-list");
+
+  if (activeLink && taskbarList) {
+    activeLink.scrollIntoView({
+      behavior: "smooth",
+      inline: "center", // Centers the active link horizontally in the bar
+      block: "nearest",
+    });
+  }
+}

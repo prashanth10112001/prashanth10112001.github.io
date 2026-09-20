@@ -32,6 +32,10 @@
   box-shadow:
     0 12px 35px rgba(0, 0, 0, 0.12),
     0 2px 8px rgba(0, 0, 0, 0.06);
+
+  /* Responsive safety boundaries */
+  max-width: 95vw;
+  box-sizing: border-box;
 }
 .taskbar.hide {
   /* transform: translate(-50%, calc(100% - 40px)); */
@@ -60,6 +64,16 @@
 
   margin: 0;
   padding: 0;
+
+  /* Allow smooth horizontal scrolling on very narrow screens if items overflow */
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.taskbar-list::-webkit-scrollbar {
+  display: none;
 }
 
 /* ==============================
@@ -85,6 +99,7 @@
   font-size: 16px;
 
   text-decoration: none;
+  white-space: nowrap;
 
   transition:
     background 0.2s ease,
@@ -173,7 +188,42 @@
   transform: rotate(12deg);
 }
 
-/* navbar-ends */
+@media (max-width: 632px) {
+  /* .taskbar {
+    top: 8px;
+    padding: 5px;
+    border-radius: 15px;
+  } */
+  .taskbar {
+    top: auto; /* Remove top positioning */
+    bottom: 5px; /* Distance from the bottom of the screen */
+    left: 50%;
+    transform: translateX(-50%); /* Keep it horizontally centered */
+    padding: 6px;
+    border-radius: 22px; /* Slightly rounder look for the bottom pill */
+  }
+
+  .taskbar-link {
+    padding: 6px 12px;
+    /* padding: 4px 10px; Reduce horizontal padding to save space */
+    font-size: 14px; /* Slightly smaller font for mobile */
+    border-radius: 10px;
+  }
+
+  .theme-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+    border-radius: 9px;
+  }
+
+  .taskbar-divider {
+    height: 20px;
+    margin: 0 2px;
+  }
+}
+
+/*----------------- navbar-ends */
 
 .hero {
   min-height: 100vh;
