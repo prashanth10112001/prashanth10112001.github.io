@@ -87,3 +87,21 @@ function scrollToActiveLink() {
     });
   }
 }
+
+document.querySelectorAll(".project-card").forEach((card) => {
+  const video = card.querySelector(".preview-video");
+
+  if (!video) return;
+
+  card.addEventListener("mouseenter", () => {
+    video.currentTime = 0; // Restart from beginning on entry
+    video.play().catch(() => {
+      // Handles browser autoplay blocks gracefully if any occur
+    });
+  });
+
+  card.addEventListener("mouseleave", () => {
+    video.pause();
+    video.currentTime = 0; // Reset back to start frame
+  });
+});
