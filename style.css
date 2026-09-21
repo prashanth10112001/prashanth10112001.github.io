@@ -499,7 +499,6 @@
 }
 
 .about-heading .section-number {
-  padding-top: 0px;
   font-family: monospace;
   font-size: 13px;
   opacity: 0.5;
@@ -684,20 +683,28 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 575px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   .about-section {
-    padding: 50px 18px 50px;
+    min-height: fit-content;
+    padding: 50px 18px 18px;
   }
 
   .about-heading {
     gap: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 
   .about-info {
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: flex-start;
-    gap: 16px;
+    gap: 24px;
+    margin-top: 0px;
+    padding: 8px 0px;
   }
 
   .about-info .divider {
@@ -714,7 +721,19 @@
     align-items: flex-start;
     padding-left: 12px;
   }
+
+  .skills-list {
+    gap: 12px;
+  }
 }
+
+/* ========================================
+   ABOUT SECTION
+======================================== */
+
+/* ========================================
+   Education SECTION
+======================================== */
 
 .education-section {
   min-height: 100vh;
@@ -735,8 +754,6 @@
   font-family: monospace;
   font-size: 13px;
 
-  padding-top: 8px;
-
   opacity: 0.55;
 }
 
@@ -752,7 +769,7 @@
 .section-heading h2 {
   margin: 0;
 
-  font-size: clamp(48px, 6vw, 90px);
+  font-size: clamp(48px, 6vw, 85px);
   font-weight: 500;
   letter-spacing: -0.06em;
 }
@@ -863,7 +880,7 @@
 }
 @media (max-width: 700px) {
   .education-section {
-    padding: 110px 24px 80px;
+    padding: 50px 18px 18px;
   }
 
   .section-heading {
@@ -893,7 +910,39 @@
   }
 }
 
-/* Projects section */
+@media (max-width: 575px) {
+  .education-section {
+    min-height: fit-content;
+  }
+  .education-item {
+    grid-template-columns: 32px 25px 1fr;
+    min-height: 192px;
+  }
+
+  .education-year {
+    padding-top: 0px;
+  }
+
+  .education-content {
+    padding-left: 16px;
+    padding-bottom: 0;
+  }
+  .education-degree {
+    font-size: 16px;
+  }
+  .education-content h3 {
+    font-size: 24px;
+  }
+  .education-meta {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+}
+
+/* ========================================
+   Education SECTION
+======================================== */
+
 /* ========================================
    PROJECTS SECTION
 ======================================== */
@@ -904,10 +953,6 @@
   padding: 50px 7vw 0px;
 
   box-sizing: border-box;
-
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 /* ========================================
@@ -938,8 +983,6 @@
 }
 
 .projects-heading .section-number {
-  padding-top: 5px;
-
   font-family: monospace;
 
   font-size: 13px;
@@ -1179,14 +1222,14 @@
 
 @media (max-width: 650px) {
   .projects-section {
-    padding: 110px 20px 80px;
+    padding: 50px 18px 18px;
   }
 
-  .projects-frame {
+  /* .projects-frame {
     padding: 35px 18px 40px;
 
     border-radius: 28px;
-  }
+  } */
 
   .projects-heading {
     margin-bottom: 35px;
@@ -1207,7 +1250,13 @@
   }
 }
 
-/* Projects section */
+/* ========================================
+   Project SECTION
+======================================== */
+
+/* ========================================
+   Publication SECTION
+======================================== */
 
 .publications-section {
   min-height: 100vh;
@@ -1223,11 +1272,9 @@
 
   padding: 45px 0;
 
-  border-top: 1px solid currentColor;
-}
-.publication:last-child {
   border-bottom: 1px solid currentColor;
 }
+
 .publication-year {
   font-family: monospace;
   font-size: 13px;
@@ -1322,7 +1369,7 @@
 }
 @media (max-width: 700px) {
   .publications-section {
-    padding: 110px 24px 80px;
+    padding: 50px 18px 18px;
   }
 
   .publication {
@@ -1348,6 +1395,34 @@
     font-size: 14px;
   }
 }
+
+@media (max-width: 575px) {
+  .publications-section {
+    min-height: fit-content;
+  }
+
+  .publication {
+    padding: 12px 0;
+  }
+
+  .publication-title-row h3 {
+    font-size: 20px;
+    letter-spacing: 0.1px;
+  }
+
+  .publication-link {
+    width: 24px;
+    height: 24px;
+  }
+
+  .publication-venue {
+    margin: 12px 0 0;
+  }
+}
+
+/* ========================================
+   Publication SECTION
+======================================== */
 
 /* ================================
    CONTACT
@@ -1378,8 +1453,6 @@
 .contact-top .section-number {
   font-family: monospace;
   font-size: 13px;
-
-  padding-top: 3px;
 
   opacity: 0.5;
 }
@@ -1649,7 +1722,7 @@
 
 @media (max-width: 700px) {
   .contact-section {
-    padding: 110px 24px 30px;
+    padding: 50px 18px 18px;
   }
 
   .contact-main {
@@ -1686,6 +1759,12 @@
     gap: 7px;
   }
 }
-/* testing about */
+/* ========================================
+   Contact SECTION
+======================================== */
 
-/* testing */
+@media (max-width: 575px) {
+  .section-heading {
+    margin-bottom: 24px;
+  }
+}
